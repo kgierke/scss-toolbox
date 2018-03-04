@@ -17,3 +17,13 @@ $toolbox-breakpoints: (
     'xl': 1300px,
     'xxl': 1700px
 ) !default;
+
+/**
+ * Color identifiers and values.
+ *
+ * @type {Map}
+ */
+$toolbox-colors: (
+    'black': #000000,
+    'white': #ffffff
+) !default;

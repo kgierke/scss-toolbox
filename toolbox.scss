@@ -10,6 +10,11 @@
 @import 'src/config';
 
 /**
+ * Import functions.
+ */
+@import 'src/functions/.importer';
+
+/**
  * Import mixins.
  */
 @import 'src/mixins/.importer';
