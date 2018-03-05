@@ -1,0 +1,22 @@
+/**
+ * -------------------------------------------------------------------------
+ * Font size function
+ * -------------------------------------------------------------------------
+ */
+
+/**
+ * 'font-size()' function
+ *
+ * @param {String} $name - quoted, lower-case color name (e.g. 'xs', 'm')
+ *
+ * @return {String} calculated font-size based on ratio and multiplier in 'rem'.
+ */
+@function font-size($name) {
+    $multiplier: map_get($toolbox-typo-sizes, $name);
+
+    @if ($multiplier) {
+        @return 1rem * pow($toolbox-typo-ratio, $multiplier);
+    } @else {
+        @error '=> ERROR: FONT-SIZE NOT FOUND! <= | Your Font-Size-Name (#{$name}) did not match any of the values in the $toolbox-typo-sizes map.';
+    }
+}
