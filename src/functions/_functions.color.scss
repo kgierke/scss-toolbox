@@ -1,0 +1,27 @@
+/**
+ * -------------------------------------------------------------------------
+ * Color function
+ * -------------------------------------------------------------------------
+ */
+
+/**
+ * 'color()' function
+ *
+ * @param {String} $name - quoted, lower-case color name (e.g. 'black', 'white')
+ * @param {Number} $opacity - integer between 0 and 1 for color opacity (e.g. '0.1', '0.85')
+ *
+ * @return {Color} color from '$toolbox-colors' as hex or rgba value.
+ */
+@function color($name, $opacity: false) {
+    $color: map_get($toolbox-colors, $name);
+
+    @if ($color) {
+        @if ($opacity != false and type_of($opacity) == number) {
+            @return rgba($color, $opacity);
+        } @else {
+            @return $color;
+        }
+    } @else {
+        @error '=> ERROR: COLOR NOT FOUND! <= | Your Color-Name (#{$name}) did not match any of the values in the $toolbox-colors map.';
+    }
+}

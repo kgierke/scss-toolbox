@@ -1,0 +1,18 @@
+@include describe('clearfix() mixin') {
+    @include it('returns set of declarations to clear floating.') {
+        @include assert {
+            @include output {
+                @include clearfix;
+            }
+
+            @include expect {
+                &:before,
+                &:after {
+                    clear: both;
+                    content: '';
+                    display: table;
+                }
+            }
+        }
+    }
+}

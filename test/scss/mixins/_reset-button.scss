@@ -1,0 +1,28 @@
+@include describe('reset-button() mixin') {
+    @include it('returns set of declarations to remove default button styling.') {
+        @include assert {
+            @include output {
+                @include reset-button;
+            }
+
+            @include expect {
+                background: none;
+                border: 0;
+                color: inherit;
+                cursor: default;
+                font: inherit;
+                line-height: normal;
+                overflow: visible;
+                padding: 0;
+                text-align: left;
+                text-transform: inherit;
+                user-select: none;
+
+                &::-moz-focus-inner {
+                    border: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+/**
+ * -------------------------------------------------------------------------
+ * Reset-button mixin
+ * -------------------------------------------------------------------------
+ */
+
+/**
+ * 'reset-button' mixin
+ */
+@mixin reset-button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: default;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    text-align: left;
+    text-transform: inherit;
+    user-select: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}

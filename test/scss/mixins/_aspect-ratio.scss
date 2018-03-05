@@ -1,0 +1,28 @@
+@include describe('aspect-ratio($width, $height) mixin') {
+    @include it('returns set of declarations to set the element to the calculated aspect ratio.') {
+        @include assert {
+            @include output {
+                @include aspect-ratio(16, 9);
+            }
+
+            @include expect {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    padding-top: 56.25%;
+                    width: 100%;
+                }
+
+                > * {
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
