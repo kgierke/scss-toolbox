@@ -1,0 +1,5 @@
+@include describe('pow($base, $exp) function') {
+    @include it('Returns $base raised to the power of $exp') {
+        @include assert-equal(pow(2, 8), 256);
+    }
+}
