@@ -5,7 +5,7 @@
   "main": "toolbox.scss",
   "scripts": {
     "test": "mocha",
-    "lint": "stylelint **/*.scss"
+    "lint": "stylelint src/**/*.scss"
   },
   "repository": {
     "type": "git",
