@@ -6,7 +6,7 @@ Frequently used functions and mixins for SCSS projects. No output will be genera
 
 Simply use `npm` to install the scss-toolbox.
 
-```bash
+```
 $ npm install scss-toolbox
 ```
 
@@ -132,11 +132,11 @@ Returns the hexadecimal or rgba value for the given color `$name` found in `$too
 #### Example:
 
 ```scss
-.test {
+.example {
 	color: color('black') // returns #000000
 }
 
-.test {
+.example {
 	color: color('black', 0.5) // returns rgba(0, 0, 0, 0.5)
 }
 ```
@@ -145,12 +145,14 @@ Returns the hexadecimal or rgba value for the given color `$name` found in `$too
 
 Returns the calculated font-size based on the given multiplier (from `$name` in `$toolbox-typo-sizes`) and the `$toolbox-typo-ratio`.
 
+#### Example:
+
 ```scss
-.test {
+.example {
 	font-size: font-size('xl') // returns 1.44rem
 }
 
-.test {
+.example {
 	font-size: font-size('s') // returns 0.83333rem
 }
 ```
@@ -158,6 +160,68 @@ Returns the calculated font-size based on the given multiplier (from `$name` in 
 *Font sizes are calculated with the typographic scale. See [type-scale.com](https://type-scale.com) for more information and examples.*
 
 ## Mixins
+
+### `accessibility`
+
+Hide an element visually but keep it accessible for screenreaders.
+
+#### Example
+
+```scss
+.example {
+	@include accessibility;
+}
+```
+
+**Compiled CSS**
+
+```css
+.example {
+	border: 0 !important;
+	clip: rect(0 0 0 0) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+}
+```
+
+### `aspect-ratio($width, $height)`
+
+Set an aspect-ratio for an element, by using padding-top.
+
+#### Example
+
+```scss
+.example {
+	@include aspect-ratio(16, 9);
+}
+```
+
+**Compiled CSS**
+
+```css
+.example {
+	position: relative;
+}
+
+.example:before {
+	content: '';
+	display: block;
+	padding-top: 56.25%;
+	width: 100%;
+}
+
+.example > * {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+```
 
 ### `breakpoint($query, [$query_max])`
 
@@ -169,7 +233,7 @@ Generated media queries are based on `min-width`.
 
 #### Examples
 
-##### Example 1
+**Example 1**
 
 Change the `background-color` from `red` to `blue` at the `'m'` breakpoint.
 
@@ -197,7 +261,7 @@ Change the `background-color` from `red` to `blue` at the `'m'` breakpoint.
 }
 ```
 
-##### Example 2
+**Example 2**
 
 Change the `background-color` from `red` to `blue` at `1050px`.
 
@@ -225,7 +289,7 @@ Change the `background-color` from `red` to `blue` at `1050px`.
 }
 ```
 
-##### Example 3
+**Example 3**
 
 Change the `background-color` from `red` to `blue` only between the `'m'` breakpoint and `1050px`.
 
@@ -250,6 +314,91 @@ Change the `background-color` from `red` to `blue` only between the `'m'` breakp
 	.foo {
 		background-color: blue;
 	}
+}
+```
+
+### `clearfix`
+
+Clear any previous floatings.
+
+#### Example
+
+```scss
+.example {
+	@include clearfix;
+}
+```
+
+**Compiled CSS**
+
+```css
+.example:before {
+	clear: both;
+	content: '';
+	display: table;
+}
+
+.example:after {
+	clear: both;
+	content: '';
+	display: table;
+}
+```
+
+### `reset-button`
+
+Remove default browser styling on buttons.
+
+#### Example
+
+```scss
+.example {
+	@include reset-button;
+}
+```
+
+**Compiled CSS**
+
+```css
+.example {
+	background: none;
+	border: 0;
+	color: inherit;
+	cursor: default;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	text-align: left;
+	text-transform: inherit;
+	user-select: none;
+}
+
+.example::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+```
+
+### `text-truncate`
+
+Truncate long texts that expand over the container's width.
+
+#### Example
+
+```scss
+.example {
+	@include text-truncate;
+}
+```
+
+**Compiled CSS**
+
+```css
+.example {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 ```
 

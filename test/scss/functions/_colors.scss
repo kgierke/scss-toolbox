@@ -1,0 +1,9 @@
+@include describe('color($name, [$opacity]) function') {
+    @include it('returns color by $name from $toolbox-colors as hex value without transparency.') {
+        @include assert-equal(color('black'), #000000);
+    }
+
+    @include it('returns color by $name from $toolbox-colors as rgba value with transparency.') {
+        @include assert-equal(color('black', 0.5), rgba(0, 0, 0, 0.5));
+    }
+}

@@ -1,0 +1,30 @@
+/**
+ * -------------------------------------------------------------------------
+ * Aspect-ratio mixin
+ * -------------------------------------------------------------------------
+ */
+
+/**
+ * 'aspect-ratio' mixin
+ *
+ * @param {Number} $width - width of container (e.g. 100px)
+ * @param {Number} $height - height of container (e.g. 60px)
+ */
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+        width: 100%;
+    }
+
+    > * {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

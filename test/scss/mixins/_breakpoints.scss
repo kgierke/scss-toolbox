@@ -1,0 +1,49 @@
+@include describe('breakpoint($query, [$query_max]) mixin') {
+    @include it('wraps content in media query referenced from $toolbox-breakpoints.') {
+        @include assert {
+            @include output {
+                @include breakpoint('xl') {
+                    background: red;
+                }
+            }
+
+            @include expect {
+                @media screen and (min-width: 1300px) {
+                    background: red;
+                }
+            }
+        }
+    }
+
+    @include it('wraps content in media query based on passed size.') {
+        @include assert {
+            @include output {
+                @include breakpoint(1150px) {
+                    background: red;
+                }
+            }
+
+            @include expect {
+                @media screen and (min-width: 1150px) {
+                    background: red;
+                }
+            }
+        }
+    }
+
+    @include it('wraps content in media query based on passed min and max size.') {
+        @include assert {
+            @include output {
+                @include breakpoint(1150px, 1200px) {
+                    background: red;
+                }
+            }
+
+            @include expect {
+                @media screen and (min-width: 1150px) and (max-width: 1200px) {
+                    background: red;
+                }
+            }
+        }
+    }
+}
