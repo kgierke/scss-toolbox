@@ -1,9 +1,14 @@
 /**
  * -------------------------------------------------------------------------
- * Mixins importer
+ * Text-truncate mixin
  * -------------------------------------------------------------------------
  */
-@import 'mixins.accessibility';
-@import 'mixins.breakpoint';
-@import 'mixins.clearfix';
-@import 'mixins.text-truncate';
+
+/**
+ * 'text-truncate' mixin
+ */
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

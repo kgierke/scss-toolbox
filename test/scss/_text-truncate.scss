@@ -1,0 +1,15 @@
+@include describe('text-truncate() mixin') {
+    @include it('Returns set of attributes to truncate long texts.') {
+        @include assert {
+            @include output {
+                @include text-truncate;
+            }
+
+            @include expect {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
