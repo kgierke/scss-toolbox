@@ -1,5 +1,5 @@
 @include describe('accessibility() mixin') {
-    @include it('Returns set of attributes to hide an element visually.') {
+    @include it('returns set of declarations to hide the element visually.') {
         @include assert {
             @include output {
                 @include accessibility;

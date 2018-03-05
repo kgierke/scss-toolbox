@@ -3,12 +3,12 @@
 
 $true-terminal-output: false;
 
-@import 'accessibility';
-@import 'aspect-ratio';
-@import 'base';
-@import 'breakpoints';
-@import 'colors';
-@import 'clearfix';
-@import 'reset-button';
-@import 'text-truncate';
-@import 'typography';
+@import 'mixins/accessibility';
+@import 'mixins/aspect-ratio';
+@import 'functions/base';
+@import 'mixins/breakpoints';
+@import 'functions/colors';
+@import 'mixins/clearfix';
+@import 'mixins/reset-button';
+@import 'mixins/text-truncate';
+@import 'functions/typography';

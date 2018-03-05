@@ -1,5 +1,5 @@
 @include describe('reset-button() mixin') {
-    @include it('Returns set of attributes to reset default button styling.') {
+    @include it('returns set of declarations to remove default button styling.') {
         @include assert {
             @include output {
                 @include reset-button;

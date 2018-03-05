@@ -1,5 +1,5 @@
 @include describe('aspect-ratio($width, $height) mixin') {
-    @include it('Returns set of attributes to set the given aspect ratio for the container.') {
+    @include it('returns set of declarations to set the element to the calculated aspect ratio.') {
         @include assert {
             @include output {
                 @include aspect-ratio(16, 9);

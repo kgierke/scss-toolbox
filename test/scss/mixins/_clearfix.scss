@@ -1,5 +1,5 @@
 @include describe('clearfix() mixin') {
-    @include it('Returns set of attributes to clear floating.') {
+    @include it('returns set of declarations to clear floating.') {
         @include assert {
             @include output {
                 @include clearfix;
