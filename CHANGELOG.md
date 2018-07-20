@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0 / 20.07.2018
+
+* **[Task]** update dependencies
+
 ## 1.0.0 / 05.03.2018
 
 * **[Documentation]** add documentation for utility mixins
