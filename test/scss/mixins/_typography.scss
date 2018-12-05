@@ -1,0 +1,14 @@
+@include describe('font-size($name) mixin') {
+    @include it('returns calculated font-size on ratio and multiplier in rem and corresponding line-height.') {
+        @include assert {
+            @include output {
+                @include font-size('m');
+            }
+
+            @include expect {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+        }
+    }
+}
