@@ -75,9 +75,24 @@ $toolbox-colors: (
 
 **Make sure to remove the `!default` attribute in your own configuration.**
 
+### `$toolbox-typo-base`
+
+The base font-size used by the `font-size()` function and mixin.
+
+```scss
+/**
+ * Typography base font-size.
+ *
+ * @type {Integer} (rem, em, px, pt, %)
+ */
+$toolbox-typo-base: 1rem !default;
+```
+
+**Make sure to remove the `!default` attribute in your own configuration.**
+
 ### `$toolbox-typo-ratio`
 
-The ratio used by the `font-size()` function. See the `font-size()` function documentation for more information.
+The ratio used by the `font-size()` function and mixin. See the `font-size()` function documentation for more information.
 
 ```scss
 /**
@@ -92,21 +107,25 @@ $toolbox-typo-ratio: 1.2 !default;
 
 ### `$toolbox-typo-sizes`
 
-Font sizes to be used with the `font-size()` function. See the `font-size()` function documentation for more information.
+Font sizes and line-height's to be used with the `font-size()` function and mixin. See the `font-size()` mixin documentation for more information.
+
+The first value sets the ratio for the given size, and the second value sets the line-height value.
 
 ```scss
 /**
  * Typography sizes.
+ *
+ * @type {Map}
  */
 $toolbox-typo-sizes: (
-    'xxs': -3,
-    'xs': -2,
-    's': -1,
-    'm': 0,
-    'l': 1,
-    'xl': 2,
-    'xxl': 3,
-    'xxxl': 4
+    'xxs': (-3, 1.4),
+    'xs': (-2, 1.4),
+    's': (-1, 1.4),
+    'm': (0, 1.4),
+    'l': (1, 1.4),
+    'xl': (2, 1.4),
+    'xxl': (3, 1.4),
+    'xxxl': (4, 1.4)
 ) !default;
 ```
 
@@ -344,6 +363,29 @@ Clear any previous floatings.
 	display: table;
 }
 ```
+
+### `font-size($name)`
+
+Returns the calculated font-size and line-height based on the given multiplier (from `$name` in `$toolbox-typo-sizes`) and the `$toolbox-typo-ratio`.
+
+#### Example:
+
+```scss
+.example {
+	@include font-size('xl') // returns 1.44rem
+}
+```
+
+**Compiled CSS**
+
+```css
+.example {
+	font-size: 1.44rem;
+	line-height: 1.4;
+}
+```
+
+*Font sizes are calculated with the typographic scale. See [type-scale.com](https://type-scale.com) for more information and examples.*
 
 ### `reset-button`
 

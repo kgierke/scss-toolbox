@@ -5,17 +5,18 @@
  */
 
 /**
- * 'font-size()' function
+ * 'font-size()' mixin
  *
  * @param {String} $name - quoted, lower-case color name (e.g. 'xs', 'm')
  *
- * @return {String} calculated font-size based on ratio and multiplier in 'rem'.
+ * @return {Attributes} calculated font-size based on ratio and multiplier in 'rem' and corresponding line-height.
  */
-@function font-size($name) {
+@mixin font-size($name) {
     $values: map_get($toolbox-typo-sizes, $name);
 
     @if ($values) {
-        @return $toolbox-typo-base * pow($toolbox-typo-ratio, nth($values, 1));
+        font-size: $toolbox-typo-base * pow($toolbox-typo-ratio, nth($values, 1));
+        line-height: nth($values, 2);
     } @else {
         @error '=> ERROR: FONT-SIZE NOT FOUND! <= | Your Font-Size-Name (#{$name}) did not match any of the values in the $toolbox-typo-sizes map.';
     }
